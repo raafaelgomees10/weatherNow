@@ -1,7 +1,11 @@
-import { useEffect } from 'react';
-import './App.css';
+import { useEffect, useState } from 'react';
 import Header from './components/header';
+import { ThemeProvider } from 'styled-components';
+import { darkTheme, lightTheme } from './theme';
+import { GlobalStyles } from './globalStyles';
+
 function App() {
+  const [theme, setTheme] = useState('light');
   useEffect(() => {
     const fetchData = async () => {
       const key = '4047b58fb1e1a0ed1675131eaabed905';
@@ -13,10 +17,19 @@ function App() {
     };
     fetchData();
   }, []);
+
+  const toggle = () => {
+    theme === 'light' ? setTheme('dark') : setTheme('light');
+  };
+
   return (
-    <div className="container">
-      <Header />
-    </div>
+    <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+      <div className="container">
+        <GlobalStyles />
+        <Header />
+        <button onClick={() => toggle()}>Change Theme</button>
+      </div>
+    </ThemeProvider>
   );
 }
 

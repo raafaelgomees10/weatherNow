@@ -19,7 +19,6 @@ const Wrapper = styled.div`
   align-items: center;
   background-color: transparent;
   position: relative;
-
   /* transition: all 0.2s ease;
 
   &:focus-within {

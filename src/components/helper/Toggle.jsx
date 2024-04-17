@@ -8,7 +8,10 @@ import Sun from '../../assets/sun.png';
 export const ThemeToggle = () => {
   const [isChecked, setIsChecked] = useState(false);
 
+  
+
   const handleToggleChange = () => {
+
     setIsChecked((prevState) => !prevState);
   };
 
@@ -43,7 +46,7 @@ const Background = styled.div`
   position: absolute;
   width: 100%;
   height: 100%;
-  background-size: cover;
+  background-size: contain;
   transition: opacity 0.5s ease;
 `;
 
@@ -67,11 +70,12 @@ const Ball = styled.label`
   margin-left: 6px;
   cursor: pointer;
   transition: transform 0.5s;
-  background-size: cover;
+  background-size: contain;
   background-image: url(${({ $isChecked }) => ($isChecked ? Moon : Sun)});
   transform: translateX(${({ $isChecked }) => ($isChecked ? '60px' : 'unset')});
 `;
 
 const ModeToggle = styled.input`
   position: absolute;
+  opacity:0;
 `;
