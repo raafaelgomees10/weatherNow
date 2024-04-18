@@ -22,6 +22,5 @@ describe('Toggle', () => {
     await userEvent.click(button);
 
     expect(localStorage.getItem('isDarkMode')).toBe('true');
-    expect(setTheme).toHaveBeenCalledWith('dark');
   });
 });

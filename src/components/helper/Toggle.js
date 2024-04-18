@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import LightBg from '../../assets/light.png';
 import DarkBg from '../../assets/dark.png';
@@ -10,13 +10,14 @@ export const ThemeToggle = ({ theme, setTheme }) => {
     localStorage.getItem('isDarkMode') === 'true'
   );
 
+  useEffect(() => {
+    setIsChecked(localStorage.getItem('isDarkMode') === 'true');
+  }, [theme]);
+
   const handleToggleChange = () => {
-    setIsChecked((prevState) => {
-      const newChecked = !prevState;
-      localStorage.setItem('isDarkMode', newChecked);
-      theme === 'light' ? setTheme('dark') : setTheme('light');
-      return newChecked;
-    });
+    const newChecked = !isChecked;
+    localStorage.setItem('isDarkMode', newChecked);
+    setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
   };
 
   return (
