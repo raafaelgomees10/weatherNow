@@ -5,19 +5,24 @@ import DarkBg from '../../assets/dark.png';
 import Moon from '../../assets/moon.png';
 import Sun from '../../assets/sun.png';
 
-export const ThemeToggle = () => {
-  const [isChecked, setIsChecked] = useState(false);
-
-  
+export const ThemeToggle = ({ theme, setTheme }) => {
+  const [isChecked, setIsChecked] = useState(
+    localStorage.getItem('isDarkMode') === 'true'
+  );
 
   const handleToggleChange = () => {
-
-    setIsChecked((prevState) => !prevState);
+    setIsChecked((prevState) => {
+      const newChecked = !prevState;
+      localStorage.setItem('isDarkMode', newChecked);
+      theme === 'light' ? setTheme('dark') : setTheme('light');
+      return newChecked;
+    });
   };
 
   return (
     <div data-testid="theme-toggle">
       <ModeToggle
+        data-testid="button-theme-toggle"
         type="checkbox"
         id="mode-toggle"
         checked={isChecked}
@@ -77,5 +82,5 @@ const Ball = styled.label`
 
 const ModeToggle = styled.input`
   position: absolute;
-  opacity:0;
+  opacity: 0;
 `;
