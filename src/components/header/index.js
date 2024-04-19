@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import * as S from './styles';
 import { Search } from '../helper/Search';
 import { ReactComponent as Location } from '../../assets/location.svg';
@@ -7,7 +7,6 @@ import { fetchWeatherForecast } from '../../store/weatherSlice';
 import { useDispatch } from 'react-redux';
 
 const Header = ({ theme, setTheme }) => {
-  const [city, setCity] = useState('');
   const dispatch = useDispatch();
 
   const handleClick = () => {
@@ -26,7 +25,7 @@ const Header = ({ theme, setTheme }) => {
   return (
     <S.Container>
       <ThemeToggle theme={theme} setTheme={setTheme} />
-      <Search doSearch={(city) => setCity(city)} />
+      <Search />
       <S.Button onClick={handleClick}>
         <Location />
         Current Location

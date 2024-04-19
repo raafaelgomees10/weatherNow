@@ -4,7 +4,7 @@ import { ReactComponent as SearchIcon } from '../../assets/search.svg';
 import { useDispatch } from 'react-redux';
 import { fetchWeatherForecast } from '../../store/weatherSlice';
 
-export const Search = ({ doSearch }) => {
+export const Search = () => {
   const [city, setCity] = useState('');
   const dispatch = useDispatch();
 
@@ -19,7 +19,7 @@ export const Search = ({ doSearch }) => {
     setCity(e.target.value);
 
     if (e.target.value === '') {
-      doSearch('');
+      setCity('');
     }
   };
 
@@ -30,6 +30,7 @@ export const Search = ({ doSearch }) => {
           <SearchIcon />
         </IconContainer>
         <SearchInput
+          data-testid="searchbox"
           value={city}
           onInput={handleInput}
           type="search"

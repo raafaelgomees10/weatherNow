@@ -1,45 +1,26 @@
+import { fireEvent, render, screen } from '@testing-library/react';
+import { Search } from '../helper/Search';
+import { Provider } from 'react-redux';
+import store from '../../store/configureStore';
+import * as ReactRedux from 'react-redux';
+
+const renderSearch = () => {
+  render(
+    <Provider store={store}>
+      <Search />
+    </Provider>
+  );
+};
 describe('Input', () => {
-  // it('Should render a input type equals search', () => {
-  //     render(<Search doSearch={doSearch} />);
+  it('Should render a input type equals search', () => {
+    renderSearch();
 
-  //     expect(screen.getByRole('searchbox')).toHaveProperty('type', 'search');
-  //   });
+    expect(screen.getByRole('searchbox')).toHaveProperty('type', 'search');
+  });
 
-  // it('Should call props.doSearch() when form is submitted', async () => {
-  //     render(<Search doSearch={doSearch} />);
+  it.todo('Should call dispatch() when form is submitted');
 
-  //     const form = screen.getByRole('form');
-
-  //     await fireEvent.submit(form);
-
-  //     expect(doSearch).toHaveBeenCalledTimes(1);
-  //   });
-
-  it('should call handleSubmit with the user input', () => {});
-
-  //   it('should call props.doSearch() with the user input', async () => {
-  //     render(<Search doSearch={doSearch} />);
-
-  //     const inputText = 'some text here';
-  //     const form = screen.getByRole('form');
-  //     const input = screen.getByRole('searchbox');
-
-  //     await userEvent.type(input, inputText);
-  //     await fireEvent.submit(form);
-
-  //     expect(doSearch).toHaveBeenCalledWith(inputText);
-  //   });
-
-  //   it('should all doSearch() when search input is cleared', async () => {
-  //     render(<Search doSearch={doSearch} />);
-
-  //     const inputText = 'some text here';
-  //     const input = screen.getByRole('searchbox');
-
-  //     await userEvent.type(input, inputText);
-  //     await userEvent.clear(input);
-
-  //     expect(doSearch).toHaveBeenCalledTimes(1);
-  //     expect(doSearch).toHaveBeenCalledWith('');
-  //   });
+  it.todo(
+    'Should call dispatch(fetchWeatherForecast()) when form is submitted'
+  );
 });

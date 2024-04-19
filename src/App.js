@@ -7,7 +7,7 @@ import { ThemeProvider } from 'styled-components';
 
 function App() {
   const [theme, setTheme] = useState('light');
-  const teste = useSelector((state) => state.weatherForecast.data);
+  useSelector((state) => state.weatherForecast.data);
 
   return (
     <ThemeProvider
