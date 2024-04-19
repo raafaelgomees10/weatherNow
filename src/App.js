@@ -1,11 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Header from './components/header';
-import { ThemeProvider } from 'styled-components';
-import { darkTheme, lightTheme } from './theme';
+import { useSelector } from 'react-redux';
 import { GlobalStyles } from './globalStyles';
+import { darkTheme, lightTheme } from './theme';
+import { ThemeProvider } from 'styled-components';
 
 function App() {
   const [theme, setTheme] = useState('light');
+  const teste = useSelector((state) => state.weatherForecast.data);
 
   return (
     <ThemeProvider

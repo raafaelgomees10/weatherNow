@@ -1,31 +1,17 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { ReactComponent as SearchIcon } from '../../assets/search.svg';
-import { GET_WEATHER_CITY, GET_WEATHER_FORECAST } from '../../api/api';
-import useFetch from '../../hooks/useFetch';
+import { useDispatch } from 'react-redux';
+import { fetchWeatherForecast } from '../../store/weatherSlice';
 
 export const Search = ({ doSearch }) => {
   const [city, setCity] = useState('');
-  const { request } = useFetch();
+  const dispatch = useDispatch();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    doSearch(city);
-
-    // Realiza a primeira request para obter os dados da cidade
-    const { url: cityUrl, options: cityOptions } = GET_WEATHER_CITY(city);
-    const { json: cityData } = await request(cityUrl, cityOptions);
-
-    if (cityData) {
-      // Obtém as coordenadas da cidade
-      const { lat, lon } = cityData.coord;
-      // Realiza a segunda request para obter a previsão do tempo com base nas coordenadas
-      const { url: forecastUrl, options: forecastOptions } =
-        GET_WEATHER_FORECAST(lat, lon);
-      const { json: forecastData } = await request(
-        forecastUrl,
-        forecastOptions
-      );
+    if (city.trim() !== '') {
+      dispatch(fetchWeatherForecast({ city: city }));
     }
   };
 

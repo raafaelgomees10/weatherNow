@@ -1,24 +1,26 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import * as S from './styles';
 import { Search } from '../helper/Search';
 import { ReactComponent as Location } from '../../assets/location.svg';
 import { ThemeToggle } from '../helper/Toggle';
-import useFetch from '../../hooks/useFetch';
-import { GET_WEATHER_FORECAST } from '../../api/api';
+import { fetchWeatherForecast } from '../../store/weatherSlice';
+import { useDispatch } from 'react-redux';
 
 const Header = ({ theme, setTheme }) => {
   const [city, setCity] = useState('');
-  const { request } = useFetch();
+  const dispatch = useDispatch();
+
   const handleClick = () => {
     navigator.geolocation.getCurrentPosition(getPosition);
   };
 
   async function getPosition(position) {
-    const { url, options } = GET_WEATHER_FORECAST(
-      position.coords.latitude,
-      position.coords.longitude
+    dispatch(
+      fetchWeatherForecast({
+        lat: position.coords.latitude,
+        lon: position.coords.longitude,
+      })
     );
-    await request(url, options);
   }
 
   return (
