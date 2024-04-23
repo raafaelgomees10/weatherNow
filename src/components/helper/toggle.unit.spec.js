@@ -1,4 +1,4 @@
-import { act, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { ThemeToggle } from './Toggle';
 import userEvent from '@testing-library/user-event';
 

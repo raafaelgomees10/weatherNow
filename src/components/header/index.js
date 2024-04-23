@@ -23,7 +23,7 @@ const Header = ({ theme, setTheme }) => {
   }
 
   return (
-    <S.Container>
+    <S.Container data-testid="header">
       <ThemeToggle theme={theme} setTheme={setTheme} />
       <Search />
       <S.Button onClick={handleClick}>

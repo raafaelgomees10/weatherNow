@@ -1,26 +1,44 @@
 import { fireEvent, render, screen } from '@testing-library/react';
-import { Search } from '../helper/Search';
-import { Provider } from 'react-redux';
+import Header from '.';
+import { Provider, useDispatch } from 'react-redux';
 import store from '../../store/configureStore';
-import * as ReactRedux from 'react-redux';
 
-const renderSearch = () => {
-  render(
+const renderHeader = () => {
+  return render(
     <Provider store={store}>
-      <Search />
+      <Header />
     </Provider>
   );
 };
-describe('Input', () => {
-  it('Should render a input type equals search', () => {
-    renderSearch();
 
-    expect(screen.getByRole('searchbox')).toHaveProperty('type', 'search');
+// Substitua o useDispatch original pelo mockDispatch
+jest.mock('react-redux', () => ({
+  ...jest.requireActual('react-redux'),
+  useDispatch: jest.fn(),
+}));
+
+describe('Header', () => {
+  it('Should render header', () => {
+    renderHeader();
+
+    expect(screen.getByTestId('header')).toBeInTheDocument();
   });
 
-  it.todo('Should call dispatch() when form is submitted');
+  it('should call navigator.geolocation.getCurrentPosition() after clicking the button', async () => {
+    const mockGetCurrentPosition = jest.fn();
 
-  it.todo(
-    'Should call dispatch(fetchWeatherForecast()) when form is submitted'
-  );
+    const originalGeolocation = global.navigator.geolocation;
+    global.navigator.geolocation = {
+      ...originalGeolocation,
+      getCurrentPosition: mockGetCurrentPosition,
+    };
+
+    renderHeader();
+
+    const button = screen.getByRole('button', { name: /current location/i });
+
+    await fireEvent.click(button);
+
+    expect(mockGetCurrentPosition).toHaveBeenCalledTimes(1);
+  });
 });
