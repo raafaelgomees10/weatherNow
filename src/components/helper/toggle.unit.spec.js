@@ -8,7 +8,8 @@ describe('Toggle', () => {
   });
 
   it('Should render ThemeToggle and key isDarkMode must be null', () => {
-    render(<ThemeToggle />);
+    const setTheme = jest.fn();
+    render(<ThemeToggle theme="light" setTheme={setTheme} />);
     expect(screen.getByTestId('theme-toggle')).toBeInTheDocument();
     expect(localStorage.getItem('isDarkMode')).toBeNull();
   });

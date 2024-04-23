@@ -10,9 +10,9 @@ export const Search = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // if (city.trim() !== '') {
-    dispatch(fetchWeatherForecast({ city: city }));
-    // }
+    if (city.trim() !== '') {
+      dispatch(fetchWeatherForecast({ city: city }));
+    }
   };
 
   const handleInput = (e) => {
