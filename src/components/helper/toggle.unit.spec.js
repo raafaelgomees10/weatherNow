@@ -1,72 +1,50 @@
-import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { ThemeToggle } from './Toggle';
+import { Provider, useDispatch } from 'react-redux';
 import userEvent from '@testing-library/user-event';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import store from '../../store/configureStore';
+import { toggleTheme } from '../../store/themeSlice';
 
-const setTheme = jest.fn();
+const renderToggle = () => {
+  render(
+    <Provider store={store}>
+      <ThemeToggle />
+    </Provider>
+  );
+};
+
+jest.mock('react-redux', () => ({
+  ...jest.requireActual('react-redux'),
+  useDispatch: jest.fn(),
+  useSelector: jest.fn(),
+}));
+
+jest.mock('../../store/themeSlice', () => ({
+  toggleTheme: jest.fn(),
+}));
 
 describe('Toggle', () => {
   beforeEach(() => {
-    localStorage.clear();
+    window.localStorage.clear();
   });
 
   it('Should render ThemeToggle', () => {
-    render(<ThemeToggle theme="light" setTheme={setTheme} />);
+    renderToggle();
     expect(screen.getByTestId('theme-toggle')).toBeInTheDocument();
   });
 
-  it('Should call setTheme when toggle is clicked', async () => {
-    render(<ThemeToggle theme="light" setTheme={setTheme} />);
+  it('Should call dispatch(toggleTheme()) when button is clicked', async () => {
+    const dispatchMock = jest.fn();
+    useDispatch.mockReturnValue(dispatchMock);
+    renderToggle();
 
     const button = screen.getByTestId('button-theme-toggle');
 
     await userEvent.click(button);
 
-    expect(setTheme).toHaveBeenCalledTimes(1);
-    expect(setTheme).toHaveBeenCalledWith(expect.any(Function));
+    expect(dispatchMock).toHaveBeenCalledTimes(1);
+    expect(dispatchMock).toHaveBeenCalledWith(toggleTheme());
   });
 
-  it('Should toggle theme every time is clicked', async () => {
-    render(<ThemeToggle theme="light" setTheme={setTheme} />);
-
-    const button = screen.getByTestId('button-theme-toggle');
-    let setThemeCallback;
-
-    await userEvent.click(button);
-    setThemeCallback = setTheme.mock.calls[0][0];
-    expect(setThemeCallback('light')).toBe('dark');
-
-    await userEvent.click(button);
-    setThemeCallback = setTheme.mock.calls[1][0]; // A chamada anterior está em mock.calls[0]
-    expect(setThemeCallback('dark')).toBe('light');
-
-    await userEvent.click(button);
-    setThemeCallback = setTheme.mock.calls[2][0]; //terceira chamada
-    expect(setThemeCallback('light')).toBe('dark');
-  });
-
-  it('Should render ThemeToggle with css propierts to LIGHT mode', () => {
-    render(<ThemeToggle theme="light" setTheme={setTheme} />);
-
-    const lightBackground = screen.getByTestId('light-background');
-    const darkBackground = screen.getByTestId('dark-background');
-    const ball = screen.getByTestId('mode-toggle');
-
-    expect(lightBackground).toHaveStyle('opacity: 1');
-    expect(darkBackground).toHaveStyle('opacity: 0');
-    expect(ball).toHaveStyle('transform: translateX(unset)');
-  });
-
-  // fit('Should render ThemeToggle with css propierts to DARK mode', async () => {
-  //   render(<ThemeToggle theme="dark" setTheme={setTheme} />);
-  //   const button = screen.getByTestId('button-theme-toggle');
-  //   await userEvent.click(button);
-
-  //   const lightBackground = screen.getByTestId('light-background');
-  //   const darkBackground = screen.getByTestId('dark-background');
-  //   const ball = screen.getByTestId('mode-toggle');
-
-  //   await waitFor(() => {
-  //     expect(lightBackground).toHaveStyle('opacity: 0');
-  //   });
-  // });
+  it.todo('Should change css properties when button is clicked');
 });

@@ -1,41 +1,36 @@
-import React, { useEffect, useState } from 'react';
+import React  from 'react';
 import styled from 'styled-components';
-import LightBg from '../../assets/light.png';
-import DarkBg from '../../assets/dark.png';
-import Moon from '../../assets/moon.png';
 import Sun from '../../assets/sun.png';
+import Moon from '../../assets/moon.png';
+import DarkBg from '../../assets/dark.png';
+import LightBg from '../../assets/light.png';
+import { toggleTheme } from '../../store/themeSlice';
+import { useDispatch, useSelector } from 'react-redux';
 
-export const ThemeToggle = ({ theme, setTheme }) => {
-  const [isDarkChecked, setIsDarkChecked] = useState(
-    localStorage.getItem('isDarkMode') === 'true'
-  );
-
-  useEffect(() => {
-    setIsDarkChecked(localStorage.getItem('isDarkMode') === 'true');
-  }, [theme]);
+export const ThemeToggle = () => {
+  const dispatch = useDispatch();
+  const isDarkMode = useSelector(state => state.theme.isDarkMode);
 
   const handleToggleChange = () => {
-    const newChecked = !isDarkChecked;
-    localStorage.setItem('isDarkMode', newChecked);
-    setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
+    dispatch(toggleTheme());
   };
 
   return (
     <div data-testid="theme-toggle">
       <ModeToggle
-        data-testid="button-theme-toggle"
         type="checkbox"
-        id="mode-toggle"
-        checked={isDarkChecked}
+        checked={isDarkMode}
+        id="button-mode-toggle"
         onChange={handleToggleChange}
+        data-testid="button-theme-toggle"
       />
       <Container>
-        <Light data-testid="light-background" $isDarkChecked={isDarkChecked} />
-        <Dark data-testid="dark-background" $isDarkChecked={isDarkChecked} />
+        <Light data-testid="light-background" $isDarkMode={isDarkMode} />
+        <Dark data-testid="dark-background" $isDarkMode={isDarkMode} />
         <Ball
+          $isDarkMode={isDarkMode}
           data-testid="mode-toggle"
-          htmlFor="mode-toggle"
-          $isDarkChecked={isDarkChecked}
+          htmlFor="button-mode-toggle"
         />
       </Container>
     </div>
@@ -61,12 +56,12 @@ const Background = styled.div`
 
 const Light = styled(Background)`
   background-image: url(${LightBg});
-  opacity: ${({ $isDarkChecked }) => ($isDarkChecked ? '0' : '1')};
+  opacity: ${({ $isDarkMode }) => ($isDarkMode ? '0' : '1')};
 `;
 
 const Dark = styled(Background)`
   background-image: url(${DarkBg});
-  opacity: ${({ $isDarkChecked }) => ($isDarkChecked ? '1' : '0')};
+  opacity: ${({ $isDarkMode }) => ($isDarkMode ? '1' : '0')};
 `;
 
 const Ball = styled.label`
@@ -80,9 +75,8 @@ const Ball = styled.label`
   cursor: pointer;
   transition: transform 0.5s;
   background-size: contain;
-  background-image: url(${({ $isDarkChecked }) => $isDarkChecked ? Moon : Sun});
-  transform: translateX(${({ $isDarkChecked }) => ($isDarkChecked ? '60px' : 'unset')}
-  );
+  background-image: url(${({ $isDarkMode }) => $isDarkMode ? Moon : Sun});
+  transform: translateX(${({ $isDarkMode }) => ($isDarkMode ? '60px' : 'unset')});
 `;
 
 const ModeToggle = styled.input`

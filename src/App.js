@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import Header from './components/header';
 import { useSelector } from 'react-redux';
 import { GlobalStyles } from './globalStyles';
@@ -6,8 +5,8 @@ import { darkTheme, lightTheme } from './theme';
 import { ThemeProvider } from 'styled-components';
 
 function App() {
-  const [theme, setTheme] = useState('light');
   useSelector((state) => state.weatherForecast.data);
+  useSelector((state) => state.theme.isDarkMode);
 
   return (
     <ThemeProvider
@@ -17,7 +16,7 @@ function App() {
     >
       <GlobalStyles />
       <div className="container">
-        <Header theme={theme} setTheme={setTheme} />
+        <Header />
       </div>
     </ThemeProvider>
   );
