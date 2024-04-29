@@ -1,4 +1,7 @@
 module.exports = {
   collectCoverage: true,
-  collectCoverageFrom: ['src/**/*.js'], // Especifique os arquivos a serem incluídos na cobertura
+  collectCoverageFrom: [
+    '<rootDir>/src/components/**/*.js',
+    '<rootDir>/src/store/**/*.js',
+  ],
 };

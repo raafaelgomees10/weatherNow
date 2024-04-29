@@ -1,7 +1,9 @@
-import { fireEvent, render, screen } from '@testing-library/react';
 import Header from '.';
-import { Provider, useDispatch } from 'react-redux';
 import store from '../../store/configureStore';
+import { Provider, useDispatch } from 'react-redux';
+import userEvent from '@testing-library/user-event';
+import { render, screen } from '@testing-library/react';
+import { fetchWeatherForecast } from '../../store/weatherSlice';
 
 const renderHeader = () => {
   return render(
@@ -11,10 +13,13 @@ const renderHeader = () => {
   );
 };
 
-// Substitua o useDispatch original pelo mockDispatch
 jest.mock('react-redux', () => ({
   ...jest.requireActual('react-redux'),
   useDispatch: jest.fn(),
+}));
+
+jest.mock('../../store/weatherSlice', () => ({
+  fetchWeatherForecast: jest.fn(),
 }));
 
 describe('Header', () => {
@@ -24,7 +29,7 @@ describe('Header', () => {
     expect(screen.getByTestId('header')).toBeInTheDocument();
   });
 
-  it('should call navigator.geolocation.getCurrentPosition() after clicking the button', async () => {
+  it('Should call getCurrentPosition() and then dispatch fetchWeatherForecast() action after clicking the button', () => {
     const mockGetCurrentPosition = jest.fn();
 
     const originalGeolocation = global.navigator.geolocation;
@@ -33,12 +38,32 @@ describe('Header', () => {
       getCurrentPosition: mockGetCurrentPosition,
     };
 
+    const dispatchMock = jest.fn();
+    useDispatch.mockReturnValue(dispatchMock);
+
     renderHeader();
 
-    const button = screen.getByRole('button', { name: /current location/i });
-
-    await fireEvent.click(button);
+    const button = screen.getByText(/current location/i);
+    userEvent.click(button);
 
     expect(mockGetCurrentPosition).toHaveBeenCalledTimes(1);
+
+    const fakePosition = {
+      coords: {
+        latitude: 40.7128,
+        longitude: -74.006,
+      },
+    };
+
+    //simulando a chamada do getCurretnPosition
+    mockGetCurrentPosition.mock.calls[0][0](fakePosition);
+
+    expect(dispatchMock).toHaveBeenCalledTimes(1);
+    expect(dispatchMock).toHaveBeenCalledWith(
+      fetchWeatherForecast({
+        lat: fakePosition.coords.latitude,
+        lon: fakePosition.coords.longitude,
+      })
+    );
   });
 });
