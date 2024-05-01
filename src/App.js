@@ -1,12 +1,30 @@
 import Header from './components/header';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { GlobalStyles } from './globalStyles';
 import { darkTheme, lightTheme } from './theme';
 import { ThemeProvider } from 'styled-components';
+import LocalTime from './components/localTime';
+import { useEffect } from 'react';
+import { fetchWeatherForecast } from './store/weatherSlice';
 
 function App() {
-  useSelector((state) => state.weatherForecast.data);
+  const { data, loading, error } = useSelector(
+    (state) => state.weatherForecast
+  );
   useSelector((state) => state.theme.isDarkMode);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(
+      fetchWeatherForecast({
+        lat: 51.5085,
+        lon: -0.1257,
+      })
+    );
+  }, [dispatch]);
+
+  const cityName = data?.weather?.name;
+  const forecastData = data?.forecast;
 
   return (
     <ThemeProvider
@@ -17,6 +35,7 @@ function App() {
       <GlobalStyles />
       <div className="container">
         <Header />
+        <LocalTime cityName={cityName} forecast={forecastData} />
       </div>
     </ThemeProvider>
   );

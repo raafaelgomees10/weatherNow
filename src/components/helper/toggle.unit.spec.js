@@ -1,7 +1,7 @@
 import { ThemeToggle } from './Toggle';
 import { Provider, useDispatch } from 'react-redux';
 import userEvent from '@testing-library/user-event';
-import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import store from '../../store/configureStore';
 import { toggleTheme } from '../../store/themeSlice';
 
