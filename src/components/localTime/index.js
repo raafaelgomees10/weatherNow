@@ -7,8 +7,6 @@ const LocalTime = ({ cityName, forecast }) => {
   const timezone = forecast?.timezone_offset;
 
   const { date, time } = getDateAndTimeFromTimestamp(timestamp, timezone);
-  console.log('da', timestamp);
-  console.log('ti', time);
 
   return (
     <S.Container data-testid="localime">

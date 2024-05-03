@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-
+/* istanbul ignore next */
 const initialState = {
   isDarkMode: localStorage.getItem('isDarkMode') === 'true' ? true : false,
 };

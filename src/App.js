@@ -26,6 +26,13 @@ function App() {
   const cityName = data?.weather?.name;
   const forecastData = data?.forecast;
 
+  if (error) {
+    return <p>error</p>;
+  }
+  if (loading) {
+    return <p>Loading</p>;
+  }
+
   return (
     <ThemeProvider
       theme={
