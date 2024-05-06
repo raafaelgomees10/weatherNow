@@ -7,6 +7,8 @@ export const GlobalStyles = createGlobalStyle`
 
    body {
     background: ${(props) => props.theme.body}; 
+    color: ${(props) => props.theme.fontColor}; 
+    font-family: "Poppins", sans-serif;
     margin: 0;
     padding: 0;
   }

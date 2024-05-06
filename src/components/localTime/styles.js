@@ -6,11 +6,9 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 16px 0;
   border-radius: 30px;
   background: ${(props) => props.theme.componentBackground};
   box-shadow: 10px 10px 4px 0 rgba(0, 0, 0, 0.5);
-  color: ${(props) => props.theme.fontColor};
 `;
 
 export const City = styled.h1`
