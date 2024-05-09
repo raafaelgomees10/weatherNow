@@ -7,28 +7,36 @@ import { ReactComponent as HumidityIcon } from '../../assets/humidity.svg';
 import { ReactComponent as UVIcon } from '../../assets/uv.svg';
 import { ReactComponent as PressureIcon } from '../../assets/pressure.svg';
 import { ReactComponent as WindIcon } from '../../assets/wind.svg';
+import { getTime } from '../utils/getTime';
+import { roundNumber } from '../utils/roundNumber';
+import { getKmPerHour } from '../utils/getKmPerHour';
 
-const WeatherDetails = () => {
+const WeatherDetails = ({ forecast }) => {
+  const timezone = forecast?.timezone_offset;
+  const sunset = getTime(forecast?.current.sunset, timezone);
+  const sunrise = getTime(forecast?.current.sunrise, timezone);
+
   return (
     <S.Container>
       <S.Column>
-        <S.Temperature>24ªC</S.Temperature>
+        <S.Temperature>{roundNumber(forecast?.current.temp)}ºC</S.Temperature>
         <S.Feels>
-          Feels like: <strong>22ºC</strong>
+          Feels like:
+          <strong>{roundNumber(forecast?.current.feels_like)}ºC</strong>
         </S.Feels>
         <div>
           <S.Details>
             <SunriseIcon />
             <S.Sun>
               Sunrise
-              <span>06:37 AM</span>
+              <span>{sunrise}</span>
             </S.Sun>
           </S.Details>
           <S.Details>
             <SunsetIcon />
             <S.Sun>
               Sunset
-              <span>06:37 AM</span>
+              <span>{sunset}</span>
             </S.Sun>
           </S.Details>
         </div>
@@ -41,28 +49,28 @@ const WeatherDetails = () => {
         <div>
           <HumidityIcon />
           <S.Block>
-            41%
-            <span>Humidity</span>
+            {forecast?.current.humidity}%<span>Humidity</span>
           </S.Block>
         </div>
         <div>
           <WindIcon />
           <S.Block>
-            2km/h
+            {roundNumber(getKmPerHour(forecast?.current.wind_speed))}km/h
             <span>Wind Speed</span>
           </S.Block>
         </div>
         <div>
           <PressureIcon />
           <S.Block>
-            997hPa
+            {forecast?.current.pressure}hPa
             <span>Pressure</span>
           </S.Block>
         </div>
         <div>
           <UVIcon />
           <S.Block>
-            8<span>UV</span>
+            {forecast?.current.uvi}
+            <span>UV</span>
           </S.Block>
         </div>
       </S.Column>

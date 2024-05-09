@@ -46,7 +46,7 @@ const Home = () => {
         ) : (
           <S.TopContent>
             <LocalTime cityName={cityName} forecast={forecastData} />
-            <WeatherDetails />
+            <WeatherDetails forecast={forecastData} />
           </S.TopContent>
         )}
       </div>

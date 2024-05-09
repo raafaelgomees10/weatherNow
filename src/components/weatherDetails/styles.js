@@ -25,7 +25,7 @@ export const Column = styled.div`
     grid-template-columns: 1fr 1fr;
     width: 100%;
     justify-items: center;
-    text-align: center; /* Centraliza o conteúdo na horizontal */
+    text-align: center;
   }
 `;
 
@@ -42,7 +42,7 @@ export const Temperature = styled.div`
 export const Feels = styled.div`
   display: flex;
   align-items: center;
-  font-size: 2rem;
+  font-size: 1.9rem;
   font-weight: 400;
   margin-top: -5px;
   margin-bottom: 24px;
@@ -50,7 +50,7 @@ export const Feels = styled.div`
   color: ${(props) => props.theme.feelsColor};
 
   > strong {
-    font-size: 3.2rem;
+    font-size: 3rem;
     font-weight: 600;
     margin-left: 8px;
   }
@@ -84,5 +84,3 @@ export const Block = styled.div`
     font-weight: 500;
   }
 `;
-
-// export const Temperature = styled.div``;
