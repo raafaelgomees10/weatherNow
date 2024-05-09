@@ -1,7 +1,7 @@
-import React  from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import Sun from '../../assets/sun.png';
-import Moon from '../../assets/moon.png';
+import Sun from '../../assets/sunButton.png';
+import Moon from '../../assets/moonButton.png';
 import DarkBg from '../../assets/dark.png';
 import LightBg from '../../assets/light.png';
 import { toggleTheme } from '../../store/themeSlice';
@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 export const ThemeToggle = () => {
   const dispatch = useDispatch();
-  const isDarkMode = useSelector(state => state.theme.isDarkMode);
+  const isDarkMode = useSelector((state) => state.theme.isDarkMode);
 
   const handleToggleChange = () => {
     dispatch(toggleTheme());
@@ -75,8 +75,10 @@ const Ball = styled.label`
   cursor: pointer;
   transition: transform 0.5s;
   background-size: contain;
-  background-image: url(${({ $isDarkMode }) => $isDarkMode ? Moon : Sun});
-  transform: translateX(${({ $isDarkMode }) => ($isDarkMode ? '60px' : 'unset')});
+  background-image: url(${({ $isDarkMode }) => ($isDarkMode ? Moon : Sun)});
+  transform: translateX(
+    ${({ $isDarkMode }) => ($isDarkMode ? '60px' : 'unset')}
+  );
 `;
 
 const ModeToggle = styled.input`

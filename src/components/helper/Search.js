@@ -34,7 +34,7 @@ export const Search = () => {
           value={city}
           onInput={handleInput}
           type="search"
-          placeholder="Search"
+          placeholder="Search for your preffered city..."
         />
       </Wrapper>
     </form>
@@ -47,12 +47,6 @@ const Wrapper = styled.div`
   align-items: center;
   background-color: transparent;
   position: relative;
-  /* transition: all 0.2s ease;
-
-  &:focus-within {
-    background-color: #202020;
-    border-color: #ee171f;
-  } */
 `;
 
 const SearchInput = styled.input`
@@ -60,19 +54,22 @@ const SearchInput = styled.input`
   border-radius: 40px;
   font-size: 2rem;
   padding: 8px 16px 8px 52px;
-  border: 1px solid #000;
-  background: #d9d9d9;
+  border: 1px solid black;
+  background: ${(props) => props.theme.bg};
+  color: ${(props) => props.theme.font};
   box-shadow: 0px 4px 40px 0px rgba(0, 0, 0, 0.25);
+  font-weight: 300;
 
-  &:hover {
-    border: 1px solid #000;
+  &:hover,
+  &:focus {
     outline: none;
   }
 `;
 
 const IconContainer = styled.div`
-  left: 16px;
   position: absolute;
+  left: 16px;
+  top: 8px;
   &:hover {
     outline: none;
   }

@@ -1,15 +1,10 @@
 import React from 'react';
 import * as S from './styles';
-import { ReactComponent as SunriseIcon } from '../../assets/sunrise.svg';
-import { ReactComponent as SunsetIcon } from '../../assets/sunset.svg';
 import { ReactComponent as SunIcon } from '../../assets/sun.svg';
-import { ReactComponent as HumidityIcon } from '../../assets/humidity.svg';
-import { ReactComponent as UVIcon } from '../../assets/uv.svg';
-import { ReactComponent as PressureIcon } from '../../assets/pressure.svg';
-import { ReactComponent as WindIcon } from '../../assets/wind.svg';
-import { getTime } from '../utils/getTime';
-import { roundNumber } from '../utils/roundNumber';
-import { getKmPerHour } from '../utils/getKmPerHour';
+import { getTime } from '../../utils/getTime';
+import { roundNumber } from '../../utils/roundNumber';
+import { getKmPerHour } from '../../utils/getKmPerHour';
+import Icon from '../../icons';
 
 const WeatherDetails = ({ forecast }) => {
   const timezone = forecast?.timezone_offset;
@@ -26,14 +21,14 @@ const WeatherDetails = ({ forecast }) => {
         </S.Feels>
         <div>
           <S.Details>
-            <SunriseIcon />
+            <Icon icon="sunrise" width="52px" />
             <S.Sun>
               Sunrise
               <span>{sunrise}</span>
             </S.Sun>
           </S.Details>
           <S.Details>
-            <SunsetIcon />
+            <Icon icon="sunset" width="52px" />
             <S.Sun>
               Sunset
               <span>{sunset}</span>
@@ -47,27 +42,29 @@ const WeatherDetails = ({ forecast }) => {
       </S.Column>
       <S.Column>
         <div>
-          <HumidityIcon />
+          <Icon icon="humidity" />
           <S.Block>
             {forecast?.current.humidity}%<span>Humidity</span>
           </S.Block>
         </div>
         <div>
-          <WindIcon />
+          {/* <WindIcon /> */}
+          <Icon icon="windspeed" />
           <S.Block>
             {roundNumber(getKmPerHour(forecast?.current.wind_speed))}km/h
             <span>Wind Speed</span>
           </S.Block>
         </div>
         <div>
-          <PressureIcon />
+          <Icon icon="pressure" className="pressure" />
           <S.Block>
             {forecast?.current.pressure}hPa
             <span>Pressure</span>
           </S.Block>
         </div>
         <div>
-          <UVIcon />
+          {/* <UVIcon /> */}
+          <Icon icon="uv" />
           <S.Block>
             {forecast?.current.uvi}
             <span>UV</span>

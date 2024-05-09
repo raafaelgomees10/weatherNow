@@ -1,6 +1,6 @@
 import React from 'react';
 import * as S from './styles';
-import { getDateAndTimeFromTimestamp } from '../utils/getDateAndTime';
+import { getDateAndTimeFromTimestamp } from '../../utils/getDateAndTime';
 
 const LocalTime = ({ cityName, forecast }) => {
   const timestamp = forecast?.current?.dt;

@@ -7,17 +7,21 @@ export const Container = styled.div`
   display: flex;
 
   border-radius: 30px;
-  background: ${(props) => props.theme.componentBackground};
+  background: ${(props) => props.theme.bg};
   box-shadow: 10px 10px 4px 0 rgba(0, 0, 0, 0.5);
 `;
 
 export const Column = styled.div`
+  &:nth-of-type(1) {
+    margin-left: 24px;
+  }
+
   &:nth-of-type(2) {
     text-align: center;
     font-size: 3.2rem;
     font-weight: 600;
     margin-top: 16px;
-    margin-left: 32px;
+    margin-left: 40px;
   }
 
   &:last-of-type {
@@ -32,7 +36,7 @@ export const Column = styled.div`
 export const Temperature = styled.div`
   font-size: 8rem;
   font-weight: 700;
-  background: ${(props) => props.theme.temperatureColor};
+  background: ${(props) => props.theme.fontGradient};
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -47,7 +51,7 @@ export const Feels = styled.div`
   margin-top: -5px;
   margin-bottom: 24px;
   letter-spacing: 0.7px;
-  color: ${(props) => props.theme.feelsColor};
+  color: ${(props) => props.theme.fontGradient2};
 
   > strong {
     font-size: 3rem;
