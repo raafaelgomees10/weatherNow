@@ -13,6 +13,12 @@ export const GlobalStyles = createGlobalStyle`
     padding: 0;
   }
 
+  p,h1,h2,div,li,ul{
+    margin:0;
+    padding: 0;
+    list-style: none;
+  }
+
   .container{
     margin: 0 auto;
     max-width: 1200px;
@@ -22,9 +28,17 @@ export const GlobalStyles = createGlobalStyle`
   svg{
     fill: ${(props) => props.theme.iconColor};
 
-    &.pressure{
-    fill: none;
-    stroke: ${(props) => props.theme.iconColor};
+    &.icon{
+      &-pressure{
+      fill: none;
+      stroke: ${(props) => props.theme.iconColor};
+    }
+    }
+   
+    >path{
+      &.icon-border{
+        fill: ${(props) => props.theme.border};
+    }
     }
   }
 `;

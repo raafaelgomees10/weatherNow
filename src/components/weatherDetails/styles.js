@@ -5,32 +5,21 @@ export const Container = styled.div`
   padding: 16px;
 
   display: flex;
+  justify-content: space-between;
 
   border-radius: 30px;
   background: ${(props) => props.theme.bg};
   box-shadow: 10px 10px 4px 0 rgba(0, 0, 0, 0.5);
 `;
 
-export const Column = styled.div`
-  &:nth-of-type(1) {
-    margin-left: 24px;
-  }
+export const TempContent = styled.div``;
 
-  &:nth-of-type(2) {
-    text-align: center;
-    font-size: 3.2rem;
-    font-weight: 600;
-    margin-top: 16px;
-    margin-left: 40px;
-  }
-
-  &:last-of-type {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    width: 100%;
-    justify-items: center;
-    text-align: center;
-  }
+export const Climate = styled.div`
+  text-transform: capitalize;
+  text-align: center;
+  font-size: 3.2rem;
+  font-weight: 600;
+  margin-top: 16px;
 `;
 
 export const Temperature = styled.div`
@@ -68,23 +57,11 @@ export const Sun = styled.div`
   }
 `;
 
-export const Details = styled.div`
+export const SunData = styled.div`
   font-size: 2rem;
   font-weight: 500;
   display: flex;
   &:not(:last-child) {
     margin-bottom: 16px;
-  }
-`;
-
-export const Block = styled.div`
-  font-size: 2rem;
-  font-weight: 600;
-  margin-top: 8px;
-  > span {
-    margin-top: 8px;
-    font-size: 1.6rem;
-    display: block;
-    font-weight: 500;
   }
 `;

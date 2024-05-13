@@ -5,6 +5,7 @@ export const lightTheme = {
   fontGradient: 'linear-gradient(80deg, #292929 -3%, #fff 200%)',
   fontGradient2: '#292929',
   iconColor: '#000',
+  border: '#6d6f73',
 };
 
 export const darkTheme = {
@@ -14,4 +15,5 @@ export const darkTheme = {
   fontGradient: 'linear-gradient(84deg, #FFF -16%, #292929 200%)',
   fontGradient2: 'rgba(255, 255, 255, 0.8)',
   iconColor: '#fff',
+  border: '#b6c1d1',
 };
