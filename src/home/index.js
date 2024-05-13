@@ -8,6 +8,7 @@ import * as S from './styles';
 import { ThemeProvider } from 'styled-components';
 import { darkTheme, lightTheme } from '../theme';
 import { GlobalStyles } from '../globalStyles';
+import DaysForecast from '../components/daysForecast';
 
 const Home = () => {
   const { data, loading, error } = useSelector(
@@ -44,10 +45,16 @@ const Home = () => {
         ) : loading ? (
           <p>loading</p>
         ) : (
-          <S.TopContent>
-            <LocalTime cityName={cityName} forecast={forecastData} />
-            <WeatherDetails forecast={forecastData} />
-          </S.TopContent>
+          <>
+            <S.Content>
+              <LocalTime cityName={cityName} forecast={forecastData} />
+              <WeatherDetails forecast={forecastData} />
+            </S.Content>
+
+            <S.Content className="bottom">
+              <DaysForecast forecast={forecastData} />
+            </S.Content>
+          </>
         )}
       </div>
     </ThemeProvider>

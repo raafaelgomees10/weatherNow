@@ -1,10 +1,10 @@
 import React from 'react';
 
-const Moon = () => {
+const Moon = ({ height, width }) => {
   return (
     <svg
-      width="180px"
-      height="180px"
+      width={width}
+      height={height}
       version="1.1"
       id="Layer_1"
       xmlns="http://www.w3.org/2000/svg"

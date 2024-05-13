@@ -1,10 +1,10 @@
 import React from 'react';
 
-const Clouds = () => {
+const Clouds = ({ height, width }) => {
   return (
     <svg
-      width="180px"
-      height="180px"
+      width={width}
+      height={height}
       viewBox="0 0 36 36"
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden="true"

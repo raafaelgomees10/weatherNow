@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Sun = () => {
+const Sun = ({ height, width }) => {
   return (
     <svg
       id="Layer_1"
-      width="180px"
-      height="180px"
+      width={width}
+      height={height}
       data-name="Layer 1"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 122.88 122.88"

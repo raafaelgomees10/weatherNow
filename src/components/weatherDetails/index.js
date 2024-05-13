@@ -40,7 +40,11 @@ const WeatherDetails = ({ forecast }) => {
       </S.TempContent>
 
       <S.Climate>
-        <WeatherIcon weather={forecast?.current.weather[0]} />
+        <WeatherIcon
+          width="180px"
+          height="180px"
+          weather={forecast?.current.weather[0]}
+        />
         <p>{forecast?.current.weather[0].description}</p>
       </S.Climate>
 

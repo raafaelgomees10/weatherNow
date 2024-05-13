@@ -1,4 +1,5 @@
 export const getDateAndTimeFromTimestamp = (timestamp, timezone) => {
+  console.log('oi');
   const timestampInMS = timestamp * 1000;
 
   const timezoneOffsetInMS = timezone * 1000;
