@@ -8,7 +8,8 @@ import * as S from './styles';
 import { ThemeProvider } from 'styled-components';
 import { darkTheme, lightTheme } from '../theme';
 import { GlobalStyles } from '../globalStyles';
-import DaysForecast from '../components/daysForecast';
+import DailyForecast from '../components/dailyForecast';
+import HourlyForecast from '../components/hourlyForecast';
 
 const Home = () => {
   const { data, loading, error } = useSelector(
@@ -52,7 +53,8 @@ const Home = () => {
             </S.Content>
 
             <S.Content className="bottom">
-              <DaysForecast forecast={forecastData} />
+              <DailyForecast forecast={forecastData} />
+              <HourlyForecast forecast={forecastData} />
             </S.Content>
           </>
         )}

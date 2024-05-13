@@ -4,7 +4,7 @@ import WeatherIcon from '../../utils/getWeatherIcon';
 import { roundNumber } from '../../utils/roundNumber';
 import { getDateAndTimeFromTimestamp } from '../../utils/getDateAndTime';
 
-const DaysForecast = ({ forecast }) => {
+const DailyForecast = ({ forecast }) => {
   const fiveDays = forecast?.daily.slice(1, -2);
 
   return (
@@ -38,4 +38,4 @@ const DaysForecast = ({ forecast }) => {
   );
 };
 
-export default DaysForecast;
+export default DailyForecast;

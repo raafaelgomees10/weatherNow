@@ -14,6 +14,7 @@ import SunRain from './components/sunrain';
 import SunCloud from './components/suncloud';
 import Rain from './components/rain';
 import Mist from './components/mist';
+import Arrow from './components/arrow';
 
 const Icon = ({ icon, height, width, className }) => {
   switch (icon) {
@@ -29,6 +30,8 @@ const Icon = ({ icon, height, width, className }) => {
       return <Pressure height={height} width={width} className={className} />;
     case 'uv':
       return <Uv height={height} width={width} className={className} />;
+    case 'arrow':
+      return <Arrow height={height} width={width} className={className} />;
 
     case 'sun':
       return <Sun height={height} width={width} className={className} />;

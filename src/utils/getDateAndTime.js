@@ -1,8 +1,7 @@
-export const getDateAndTimeFromTimestamp = (timestamp, timezone) => {
-  console.log('oi');
+export const convertTimestampToDate = (timestamp, timezoneOffset) => {
   const timestampInMS = timestamp * 1000;
 
-  const timezoneOffsetInMS = timezone * 1000;
+  const timezoneOffsetInMS = timezoneOffset * 1000;
 
   // Calcule o offset do fuso horário local em relação ao UTC
   const localTimezoneOffsetInMS = new Date().getTimezoneOffset() * 60 * 1000;
@@ -12,19 +11,20 @@ export const getDateAndTimeFromTimestamp = (timestamp, timezone) => {
     timestampInMS + timezoneOffsetInMS + localTimezoneOffsetInMS;
 
   // Crie uma nova data com base no timestamp ajustado
-  let date = new Date(newTimestamp);
+  return new Date(newTimestamp);
+};
 
-  // Formate a data
+export const getDateAndTimeFromTimestamp = (timestamp, timezone) => {
+  let date = convertTimestampToDate(timestamp, timezone);
+
   const dayOfWeek = date.toLocaleString('en-US', { weekday: 'long' });
   const dayOfMonth = date.getDate();
   const month = date.toLocaleString('en-US', { month: 'short' });
   const formattedDate = `${dayOfWeek}, ${dayOfMonth} ${month}`;
 
-  // Formate a hora
   const hours = date.getHours();
   const minutes = ('0' + date.getMinutes()).slice(-2);
   const formattedTime = `${hours}:${minutes}`;
 
-  // Retorne a data e hora formatadas
   return { date: formattedDate, time: formattedTime };
 };
