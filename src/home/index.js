@@ -10,6 +10,9 @@ import { darkTheme, lightTheme } from '../theme';
 import { GlobalStyles } from '../globalStyles';
 import DailyForecast from '../components/dailyForecast';
 import HourlyForecast from '../components/hourlyForecast';
+import Footer from '../components/footer';
+import Loading from '../components/loading';
+import Error from '../components/helper/Error';
 
 const Home = () => {
   const { data, loading, error } = useSelector(
@@ -42,9 +45,9 @@ const Home = () => {
         <Header />
 
         {error ? (
-          <p>error</p>
+          <Error />
         ) : loading ? (
-          <p>loading</p>
+          <Loading />
         ) : (
           <>
             <S.Content>
@@ -59,6 +62,7 @@ const Home = () => {
           </>
         )}
       </div>
+      <Footer />
     </ThemeProvider>
   );
 };

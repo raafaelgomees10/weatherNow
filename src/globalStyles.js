@@ -11,6 +11,7 @@ export const GlobalStyles = createGlobalStyle`
     font-family: "Poppins", sans-serif;
     margin: 0;
     padding: 0;
+    background-repeat: no-repeat;
   }
 
   p,h1,h2,div,li,ul{
@@ -23,6 +24,10 @@ export const GlobalStyles = createGlobalStyle`
     margin: 0 auto;
     max-width: 1200px;
     padding: 32px 0;
+
+    @media(min-width: 1500px){
+    margin: 32px auto 28px;
+    }
   }
 
   svg{

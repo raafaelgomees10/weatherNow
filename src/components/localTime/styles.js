@@ -15,6 +15,12 @@ export const City = styled.h1`
   font-size: 3.6rem;
   font-weight: 700;
   margin: 0 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  > img {
+    margin-left: 16px;
+  }
 `;
 
 export const Content = styled.div`
