@@ -9,17 +9,28 @@ export const Container = styled.div`
   border-radius: 30px;
   background: ${(props) => props.theme.bg};
   box-shadow: 10px 10px 4px 0 rgba(0, 0, 0, 0.5);
+
+  @media (max-width: 767px) {
+    width: 100%;
+    padding: 20px 0;
+  }
 `;
 
 export const City = styled.h1`
   font-size: 3.6rem;
   font-weight: 700;
-  margin: 0 0 24px;
+  margin-bottom: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
+
   > img {
     margin-left: 16px;
+  }
+
+  @media (max-width: 767px) {
+    margin: 0;
+    font-size: 3.2rem;
   }
 `;
 
@@ -34,6 +45,9 @@ export const Time = styled.span`
   font-size: 7.6rem;
   font-weight: 700;
   display: block;
+  @media (max-width: 767px) {
+    font-size: 5.6rem;
+  }
 `;
 
 export const Day = styled.span`

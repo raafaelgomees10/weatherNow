@@ -10,9 +10,20 @@ export const Container = styled.div`
   border-radius: 30px;
   background: ${(props) => props.theme.bg};
   box-shadow: 10px 10px 4px 0 rgba(0, 0, 0, 0.5);
+
+  @media (max-width: 767px) {
+    margin: 40px 0;
+    width: 100%;
+    padding: 16px 0;
+    flex-direction: column;
+  }
 `;
 
-export const TempContent = styled.div``;
+export const TempContent = styled.div`
+  @media (max-width: 767px) {
+    padding: 0 16px;
+  }
+`;
 
 export const Climate = styled.div`
   text-transform: capitalize;
@@ -20,6 +31,11 @@ export const Climate = styled.div`
   font-size: 3.2rem;
   font-weight: 600;
   margin-top: 16px;
+
+  @media (max-width: 767px) {
+    font-size: 2.4rem;
+    margin-bottom: 16px;
+  }
 `;
 
 export const Temperature = styled.div`
@@ -30,6 +46,10 @@ export const Temperature = styled.div`
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   line-height: 1;
+
+  @media (max-width: 767px) {
+    font-size: 4rem;
+  }
 `;
 
 export const Feels = styled.div`
@@ -47,6 +67,15 @@ export const Feels = styled.div`
     font-weight: 600;
     margin-left: 8px;
   }
+
+  @media (max-width: 767px) {
+    font-size: 1.6rem;
+    margin: 0px;
+
+    > strong {
+      font-size: 2.4rem;
+    }
+  }
 `;
 
 export const Sun = styled.div`
@@ -63,5 +92,8 @@ export const SunData = styled.div`
   display: flex;
   &:not(:last-child) {
     margin-bottom: 16px;
+  }
+  @media (max-width: 767px) {
+    display: none;
   }
 `;

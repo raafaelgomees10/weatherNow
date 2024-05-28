@@ -47,6 +47,10 @@ const Wrapper = styled.div`
   align-items: center;
   background-color: transparent;
   position: relative;
+
+  @media (max-width: 767px) {
+    width: 100%;
+  }
 `;
 
 const SearchInput = styled.input`
@@ -64,6 +68,10 @@ const SearchInput = styled.input`
   &:focus {
     outline: none;
   }
+
+  @media (max-width: 767px) {
+    font-size: 1.4rem;
+  }
 `;
 
 const IconContainer = styled.div`
@@ -72,5 +80,9 @@ const IconContainer = styled.div`
   top: 8px;
   &:hover {
     outline: none;
+  }
+
+  @media (max-width: 767px) {
+    top: 6px;
   }
 `;

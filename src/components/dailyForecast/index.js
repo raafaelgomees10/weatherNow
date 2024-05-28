@@ -22,6 +22,7 @@ const DailyForecast = ({ forecast }) => {
               <S.Item key={day.dt}>
                 <S.Condition>
                   <WeatherIcon
+                    // 32, 40px
                     width="48px"
                     heigth="48px"
                     weather={day.weather[0]}

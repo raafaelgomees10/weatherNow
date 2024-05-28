@@ -13,6 +13,13 @@ export const Block = styled.div`
   &:not(:nth-of-type(even)) {
     padding-right: 16px;
   }
+
+  @media (max-width: 767px) {
+    &:not(:nth-of-type(even)) {
+      padding: 0px;
+    }
+    padding: 0px;
+  }
 `;
 
 export const Text = styled.p`
@@ -25,5 +32,12 @@ export const Text = styled.p`
     font-size: 1.6rem;
     display: block;
     font-weight: 500;
+  }
+
+  @media (max-width: 767px) {
+    font-size: 1.8rem;
+    > span {
+      margin: 0 0 12px;
+    }
   }
 `;

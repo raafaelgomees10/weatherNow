@@ -6,11 +6,16 @@ export const Container = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 30px;
+
+  @media (max-width: 767px) {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+  }
 `;
 
 export const Button = styled.button`
   background: #0d8be6;
-  font-family: Poppins;
   font-size: 2rem;
   font-weight: 800;
   color: #fff;
@@ -25,5 +30,10 @@ export const Button = styled.button`
 
   > svg {
     margin-right: 12px;
+  }
+
+  @media (max-width: 767px) {
+    padding: 4px 16px;
+    font-size: 1.4rem;
   }
 `;
