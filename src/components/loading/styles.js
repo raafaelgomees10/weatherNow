@@ -2,19 +2,33 @@ import styled, { css, keyframes } from 'styled-components';
 
 export const Container = styled.div`
   display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 2rem;
+  grid-template-columns: minmax(440px, 1fr) 2fr;
+  gap: 3.2rem;
+
+  @media (min-width: 768px) and (max-width: 1199px) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 2rem;
+  }
+
+  @media (max-width: 767px) {
+    grid-template-columns: 100%;
+  }
 `;
 
 export const Content = styled.div`
-  height: ${(props) => props.$height};
   border-radius: 30px;
   padding: 32px 0 32px 24px;
   background: ${(props) => props.theme.bg};
-  /* box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.14), 0 3px 3px -2px rgba(0, 0, 0, 0.2),
-    0 1px 8px 0 rgba(0, 0, 0, 0.12); */
 
   box-shadow: 10px 10px 4px 0 rgba(0, 0, 0, 0.5);
+
+  &:nth-of-type(2) {
+    grid-area: 1 / 2 / 3 / 3;
+  }
+  &:nth-of-type(4) {
+    grid-area: 3 / 1 / 4 / 3;
+  }
 `;
 
 const skeleton = keyframes`

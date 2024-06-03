@@ -1,20 +1,22 @@
 import React from 'react';
-import Pressure from './components/pressure';
-import Sunrise from './components/sunrise';
-import Sunset from './components/sunset';
-import Humidity from './components/humidity';
-import WindSpeed from './components/windspeed';
 import Uv from './components/uv';
-import Moon from './components/moon';
 import Sun from './components/sun';
-import Clouds from './components/clouds';
+import Moon from './components/moon';
 import Snow from './components/snow';
-import Thunderstorm from './components/thunderstorm';
-import SunRain from './components/sunrain';
-import SunCloud from './components/suncloud';
 import Rain from './components/rain';
 import Mist from './components/mist';
 import Arrow from './components/arrow';
+import Search from './components/search';
+import Sunset from './components/sunset';
+import Clouds from './components/clouds';
+import SunRain from './components/sunrain';
+import Sunrise from './components/sunrise';
+import Location from './components/location';
+import SunCloud from './components/suncloud';
+import Pressure from './components/pressure';
+import Humidity from './components/humidity';
+import WindSpeed from './components/windspeed';
+import Thunderstorm from './components/thunderstorm';
 
 const Icon = ({ icon, height, width, className }) => {
   switch (icon) {
@@ -53,6 +55,11 @@ const Icon = ({ icon, height, width, className }) => {
       return (
         <Thunderstorm height={height} width={width} className={className} />
       );
+
+    case 'location':
+      return <Location height={height} width={width} className={className} />;
+    case 'search':
+      return <Search height={height} width={width} className={className} />;
     default:
       return null;
   }

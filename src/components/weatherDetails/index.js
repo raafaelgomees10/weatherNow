@@ -20,7 +20,7 @@ const WeatherDetails = ({ forecast }) => {
           <strong>{roundNumber(forecast?.current.feels_like)}ºC</strong>
         </S.Feels>
 
-        <div>
+        <S.SunDetails>
           <S.SunData>
             <Icon icon="sunrise" width="52px" />
             <S.Sun>
@@ -36,7 +36,7 @@ const WeatherDetails = ({ forecast }) => {
               <span>{sunset}</span>
             </S.Sun>
           </S.SunData>
-        </div>
+        </S.SunDetails>
       </S.TempContent>
 
       <S.Climate>

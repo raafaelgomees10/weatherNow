@@ -1,16 +1,18 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  width: 100%;
-  padding: 16px 0;
+  padding: 16px;
   border-radius: 30px;
   background: ${(props) => props.theme.bg};
   box-shadow: 10px 10px 4px 0 rgba(0, 0, 0, 0.5);
 
+  @media (min-width: 768px) and (max-width: 1199px) {
+    grid-area: 3 / 1 / 4 / 3;
+  }
+
   @media (max-width: 767px) {
     padding: 16px 0;
     width: 100%;
-    margin-top: 40px;
   }
 `;
 
@@ -38,6 +40,8 @@ export const List = styled.ul`
 
   @media (max-width: 767px) {
     flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 8px 16px;
   }
 `;
 

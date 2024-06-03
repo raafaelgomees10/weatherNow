@@ -30,8 +30,18 @@ export const Title = styled.h1`
 export const List = styled.ul`
   width: 380px;
   margin: 0 auto;
+
+  @media (min-width: 768px) and (max-width: 1199px) {
+    width: 310px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 90%;
+  }
+
   @media (max-width: 767px) {
     padding: 0 16px;
+    width: 80%;
   }
 `;
 

@@ -26,13 +26,18 @@ export const GlobalStyles = createGlobalStyle`
     padding: 32px 0;
 
     @media(min-width: 1500px){
-    margin: 32px auto 28px;
+      margin: 32px auto 28px;
+    }
+
+    @media (min-width: 768px) and (max-width: 1199px) {
+      max-width: 720px;
+      margin: 0 auto;
     }
 
     @media (max-width: 767px) {
-    padding: 32px;
-    margin: 0 auto;
-  }
+      padding: 16px;
+      margin: 0 auto;
+    }
   }
 
   svg{

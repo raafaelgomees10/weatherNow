@@ -7,9 +7,7 @@ export const Container = styled.div`
   align-items: center;
   margin-bottom: 30px;
 
-  @media (max-width: 767px) {
-    display: none;
-    flex-direction: column;
+  @media (max-width: 768px) {
     align-items: flex-start;
   }
 `;
@@ -32,7 +30,7 @@ export const Button = styled.button`
     margin-right: 12px;
   }
 
-  @media (max-width: 767px) {
+  @media (max-width: 1199px) {
     padding: 4px 16px;
     font-size: 1.4rem;
   }

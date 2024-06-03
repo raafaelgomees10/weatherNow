@@ -13,7 +13,16 @@ const Loading = () => {
         <S.Text $width="20%" />
       </S.Content>
       <S.Content $height="255px">
-        <S.Text $width="80%" className="title" />
+        <S.Text $width="40%" />
+        <S.Text $width="40%" />
+        <S.Text $width="60%" />
+        <S.Text $width="30%" />
+        <S.Text $width="20%" />
+        <S.Text $width="40%" />
+        <S.Text $width="40%" />
+        <S.Text $width="60%" />
+        <S.Text $width="30%" />
+        <S.Text $width="20%" />
         <S.Text $width="40%" />
         <S.Text $width="40%" />
         <S.Text $width="60%" />

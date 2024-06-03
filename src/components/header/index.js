@@ -1,10 +1,10 @@
 import React from 'react';
 import * as S from './styles';
+import Icon from '../../icons';
 import { Search } from '../helper/Search';
-import { ReactComponent as Location } from '../../assets/location.svg';
+import { useDispatch } from 'react-redux';
 import { ThemeToggle } from '../helper/Toggle';
 import { fetchWeatherForecast } from '../../store/weatherSlice';
-import { useDispatch } from 'react-redux';
 
 const Header = ({ theme, setTheme }) => {
   const dispatch = useDispatch();
@@ -27,7 +27,7 @@ const Header = ({ theme, setTheme }) => {
       <ThemeToggle theme={theme} setTheme={setTheme} />
       <Search />
       <S.Button onClick={handleClick}>
-        <Location />
+        <Icon icon="location" height="32px" width="32px" />
         Current Location
       </S.Button>
     </S.Container>
