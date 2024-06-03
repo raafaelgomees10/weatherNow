@@ -1,9 +1,9 @@
 import { ThemeToggle } from './Toggle';
+import store from '../../store/configureStore';
 import { Provider, useDispatch } from 'react-redux';
 import userEvent from '@testing-library/user-event';
-import { render, screen } from '@testing-library/react';
-import store from '../../store/configureStore';
 import { toggleTheme } from '../../store/themeSlice';
+import { render, screen } from '@testing-library/react';
 
 const renderToggle = () => {
   render(

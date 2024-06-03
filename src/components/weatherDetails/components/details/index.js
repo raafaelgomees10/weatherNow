@@ -1,5 +1,5 @@
-import * as S from './styles';
 import React from 'react';
+import * as S from './styles';
 import Icon from '../../../../icons';
 import { roundNumber } from '../../../../utils/roundNumber';
 import { getKmPerHour } from '../../../../utils/getKmPerHour';

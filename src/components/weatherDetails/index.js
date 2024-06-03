@@ -3,8 +3,8 @@ import * as S from './styles';
 import Icon from '../../icons';
 import Details from './components/details';
 import { getTime } from '../../utils/getTime';
-import { roundNumber } from '../../utils/roundNumber';
 import WeatherIcon from '../../utils/getWeatherIcon';
+import { roundNumber } from '../../utils/roundNumber';
 
 const WeatherDetails = ({ forecast }) => {
   const timezone = forecast?.timezone_offset;

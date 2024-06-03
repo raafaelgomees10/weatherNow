@@ -1,10 +1,10 @@
 import React from 'react';
 import { Search } from './Search';
 import store from '../../store/configureStore';
-import { Provider, useDispatch } from 'react-redux';
-import { fireEvent, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { Provider, useDispatch } from 'react-redux';
 import { fetchWeatherForecast } from '../../store/weatherSlice';
+import { fireEvent, render, screen } from '@testing-library/react';
 
 const renderSearch = () => {
   render(

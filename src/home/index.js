@@ -1,18 +1,18 @@
 import React, { useEffect } from 'react';
-import Header from '../components/header';
-import LocalTime from '../components/localTime';
-import WeatherDetails from '../components/weatherDetails';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchWeatherForecast } from '../store/weatherSlice';
 import * as S from './styles';
-import { ThemeProvider } from 'styled-components';
-import { darkTheme, lightTheme } from '../theme';
-import { GlobalStyles } from '../globalStyles';
-import DailyForecast from '../components/dailyForecast';
-import HourlyForecast from '../components/hourlyForecast';
+import Header from '../components/header';
 import Footer from '../components/footer';
 import Loading from '../components/loading';
 import Error from '../components/helper/Error';
+import { GlobalStyles } from '../globalStyles';
+import LocalTime from '../components/localTime';
+import { darkTheme, lightTheme } from '../theme';
+import { ThemeProvider } from 'styled-components';
+import { useDispatch, useSelector } from 'react-redux';
+import DailyForecast from '../components/dailyForecast';
+import HourlyForecast from '../components/hourlyForecast';
+import WeatherDetails from '../components/weatherDetails';
+import { fetchWeatherForecast } from '../store/weatherSlice';
 
 const Home = () => {
   const { data, loading, error } = useSelector(

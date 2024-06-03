@@ -1,14 +1,11 @@
 import React from 'react';
 import * as S from './styles';
+import Icon from '../../icons';
+import { getTime } from '../../utils/getTime';
 import WeatherIcon from '../../utils/getWeatherIcon';
 import { roundNumber } from '../../utils/roundNumber';
-import {
-  convertTimestampToDate,
-  getDateAndTimeFromTimestamp,
-} from '../../utils/getDateAndTime';
-import { getTime } from '../../utils/getTime';
 import { getKmPerHour } from '../../utils/getKmPerHour';
-import Icon from '../../icons';
+import { convertTimestampToDate } from '../../utils/getDateAndTime';
 
 const HourlyForecast = ({ forecast }) => {
   // Obter a hora atual

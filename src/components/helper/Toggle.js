@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import Sun from '../../assets/sunButton.png';
-import Moon from '../../assets/moonButton.png';
 import DarkBg from '../../assets/dark.png';
 import LightBg from '../../assets/light.png';
+import Sun from '../../assets/sunButton.png';
+import Moon from '../../assets/moonButton.png';
 import { toggleTheme } from '../../store/themeSlice';
 import { useDispatch, useSelector } from 'react-redux';
 
