@@ -23,11 +23,13 @@ export const Content = styled.div`
 
   box-shadow: 10px 10px 4px 0 rgba(0, 0, 0, 0.5);
 
-  &:nth-of-type(2) {
-    grid-area: 1 / 2 / 3 / 3;
-  }
-  &:nth-of-type(4) {
-    grid-area: 3 / 1 / 4 / 3;
+  @media (min-width: 768px) and (max-width: 1199px) {
+    &:nth-of-type(2) {
+      grid-area: 1 / 2 / 3 / 3;
+    }
+    &:nth-of-type(4) {
+      grid-area: 3 / 1 / 4 / 3;
+    }
   }
 `;
 

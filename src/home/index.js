@@ -46,7 +46,7 @@ const Home = () => {
 
         {error ? (
           <Error />
-        ) : loading ? (
+        ) : !loading ? (
           <Loading />
         ) : (
           <S.Content>
