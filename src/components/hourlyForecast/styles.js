@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  width: 720px;
-  padding: 16px;
+  width: 100%;
+  padding: 16px 0;
   border-radius: 30px;
   background: ${(props) => props.theme.bg};
   box-shadow: 10px 10px 4px 0 rgba(0, 0, 0, 0.5);
@@ -31,9 +31,10 @@ export const Content = styled.div`
 `;
 
 export const List = styled.ul`
-  margin-top: 16px;
   display: flex;
   justify-content: space-between;
+  max-width: 705px;
+  margin: 16px auto 0;
 
   @media (max-width: 767px) {
     flex-wrap: wrap;

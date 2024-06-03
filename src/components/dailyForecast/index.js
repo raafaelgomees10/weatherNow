@@ -10,31 +10,29 @@ const DailyForecast = ({ forecast }) => {
   return (
     <S.Container>
       <S.Title>5 Days Forecast:</S.Title>
-      <S.Content>
-        <S.List>
-          {fiveDays?.map((day) => {
-            const { date } = getDateAndTimeFromTimestamp(
-              day.dt,
-              forecast?.timezone_offset
-            );
+      <S.List>
+        {fiveDays?.map((day) => {
+          const { date } = getDateAndTimeFromTimestamp(
+            day.dt,
+            forecast?.timezone_offset
+          );
 
-            return (
-              <S.Item key={day.dt}>
-                <S.Condition>
-                  <WeatherIcon
-                    // 32, 40px
-                    width="48px"
-                    heigth="48px"
-                    weather={day.weather[0]}
-                  />
-                </S.Condition>
-                <S.Temp>{roundNumber(day.temp.day)}ºC</S.Temp>
-                <S.Day>{date}</S.Day>
-              </S.Item>
-            );
-          })}
-        </S.List>
-      </S.Content>
+          return (
+            <S.Item key={day.dt}>
+              <S.Condition>
+                <WeatherIcon
+                  // 32, 40px
+                  width="48px"
+                  heigth="48px"
+                  weather={day.weather[0]}
+                />
+              </S.Condition>
+              <S.Temp>{roundNumber(day.temp.day)}ºC</S.Temp>
+              <S.Day>{date}</S.Day>
+            </S.Item>
+          );
+        })}
+      </S.List>
     </S.Container>
   );
 };

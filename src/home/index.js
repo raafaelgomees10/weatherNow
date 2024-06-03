@@ -49,17 +49,13 @@ const Home = () => {
         ) : loading ? (
           <Loading />
         ) : (
-          <>
-            <S.Content>
-              <LocalTime cityName={cityName} forecast={forecastData} />
-              <WeatherDetails forecast={forecastData} />
-            </S.Content>
+          <S.Content2>
+            <LocalTime cityName={cityName} forecast={forecastData} />
+            <WeatherDetails forecast={forecastData} />
 
-            <S.Content className="bottom">
-              <DailyForecast forecast={forecastData} />
-              <HourlyForecast forecast={forecastData} />
-            </S.Content>
-          </>
+            <DailyForecast forecast={forecastData} />
+            <HourlyForecast forecast={forecastData} />
+          </S.Content2>
         )}
       </div>
       <Footer />

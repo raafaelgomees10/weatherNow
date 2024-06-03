@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  width: 380px;
-  padding: 16px;
+  width: 100%;
+  padding: 16px 0;
+
   display: flex;
   justify-content: center;
-  align-items: center;
   flex-direction: column;
   border-radius: 30px;
   background: ${(props) => props.theme.bg};
@@ -27,15 +27,15 @@ export const Title = styled.h1`
   }
 `;
 
-export const Content = styled.div`
+export const List = styled.ul`
+  width: 380px;
+  margin: 0 auto;
   @media (max-width: 767px) {
     padding: 0 16px;
   }
 `;
 
-export const List = styled.div``;
-
-export const Item = styled.div`
+export const Item = styled.li`
   display: grid;
   grid-template-columns: 1fr 1fr 2fr;
   justify-content: center;

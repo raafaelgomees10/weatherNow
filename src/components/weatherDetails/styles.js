@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  width: 700px;
   padding: 16px;
 
   display: flex;
@@ -22,19 +21,6 @@ export const Container = styled.div`
 export const TempContent = styled.div`
   @media (max-width: 767px) {
     padding: 0 16px;
-  }
-`;
-
-export const Climate = styled.div`
-  text-transform: capitalize;
-  text-align: center;
-  font-size: 3.2rem;
-  font-weight: 600;
-  margin-top: 16px;
-
-  @media (max-width: 767px) {
-    font-size: 2.4rem;
-    margin-bottom: 16px;
   }
 `;
 
@@ -95,5 +81,18 @@ export const SunData = styled.div`
   }
   @media (max-width: 767px) {
     display: none;
+  }
+`;
+
+export const Climate = styled.div`
+  text-transform: capitalize;
+  text-align: center;
+  font-size: 3.2rem;
+  font-weight: 600;
+  margin-top: 16px;
+
+  @media (max-width: 767px) {
+    font-size: 2.4rem;
+    margin-bottom: 16px;
   }
 `;

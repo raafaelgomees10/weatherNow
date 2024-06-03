@@ -14,3 +14,9 @@ export const Content = styled.div`
     flex-direction: column;
   }
 `;
+
+export const Content2 = styled.div`
+  display: grid;
+  grid-template-columns: minmax(440px, 1fr) 2fr;
+  gap: 3.2rem;
+`;
