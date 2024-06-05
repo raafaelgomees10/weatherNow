@@ -8,7 +8,7 @@ const DailyForecast = ({ forecast }) => {
   const fiveDays = forecast?.daily.slice(1, -2);
 
   return (
-    <S.Container>
+    <S.Container data-testid="dailyforecast">
       <S.Title>5 Days Forecast:</S.Title>
       <S.List>
         {fiveDays?.map((day) => {

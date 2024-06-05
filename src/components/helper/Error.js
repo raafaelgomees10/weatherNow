@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const Error = () => {
   return (
-    <Container>
+    <Container data-testid="error">
       <Text>Sorry, we could not find the city...</Text>
     </Container>
   );

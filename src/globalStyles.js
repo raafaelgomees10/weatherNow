@@ -26,7 +26,7 @@ export const GlobalStyles = createGlobalStyle`
     padding: 32px 0;
 
     @media(min-width: 1500px){
-      margin: 32px auto 28px;
+      margin: 32px auto 38px;
     }
 
     @media (min-width: 768px) and (max-width: 1199px) {
@@ -50,7 +50,7 @@ export const GlobalStyles = createGlobalStyle`
     }
     }
    
-    >path{
+    > path{
       &.icon-border{
         fill: ${(props) => props.theme.border};
     }
