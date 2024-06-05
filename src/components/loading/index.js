@@ -6,7 +6,7 @@ const Loading = () => {
   const tablet = useMedia('(min-width:768px) and (max-width:1199px)');
 
   return (
-    <S.Container>
+    <S.Container data-testid="loading">
       <S.Content $height="255px">
         <S.Text $width="30%" className="title" />
         <S.Text $width="35%" />
@@ -15,7 +15,7 @@ const Loading = () => {
         <S.Text $width="50%" />
         <S.Text $width="20%" />
       </S.Content>
-      <S.Content $height="255px">
+      <S.Content $height="255px" data-testid="weather-conditions">
         <S.Text $width="40%" />
         <S.Text $width="40%" />
         <S.Text $width="75%" />

@@ -6,7 +6,7 @@ import { getKmPerHour } from '../../../../utils/getKmPerHour';
 
 const Details = ({ forecast }) => {
   return (
-    <S.Container>
+    <S.Container data-testid="details-container">
       <S.Block>
         <Icon icon="humidity" />
         <S.Text>

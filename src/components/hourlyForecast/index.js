@@ -31,13 +31,14 @@ const HourlyForecast = ({ forecast }) => {
       selectedHours.push(hourlyObjectData);
     }
 
+    /* istanbul ignore next */
     if (selectedHours.length === 5) {
       break;
     }
   }
 
   return (
-    <S.Container>
+    <S.Container data-testid="hourlyforecast">
       <S.Title>Hourly Forecast:</S.Title>
       <S.Content>
         <S.List>

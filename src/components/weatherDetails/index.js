@@ -12,7 +12,7 @@ const WeatherDetails = ({ forecast }) => {
   const sunrise = getTime(forecast?.current.sunrise, timezone);
 
   return (
-    <S.Container>
+    <S.Container data-testid="weather-details">
       <S.TempContent>
         <S.Temperature>{roundNumber(forecast?.current.temp)}ºC</S.Temperature>
         <S.Feels>
@@ -45,7 +45,7 @@ const WeatherDetails = ({ forecast }) => {
           height="180px"
           weather={forecast?.current.weather[0]}
         />
-        <p>{forecast?.current.weather[0].description}</p>
+        <p data-testid="desc">{forecast?.current.weather[0].description}</p>
       </S.Climate>
 
       <Details forecast={forecast} />
