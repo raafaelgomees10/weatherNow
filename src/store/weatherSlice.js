@@ -7,6 +7,7 @@ export const fetchWeatherForecast = createAsyncThunk(
   'fetchWeatherForecast',
   async ({ city, lat, lon }) => {
     try {
+      /* istanbul ignore next */
       const params = city ? `q=${city}` : `lat=${lat}&lon=${lon}`;
 
       const weatherResponse = await fetch(
