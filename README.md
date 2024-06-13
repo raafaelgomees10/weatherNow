@@ -1,70 +1,31 @@
-# Getting Started with Create React App
+# :sun_behind_small_cloud: WeatherNow :crescent_moon:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+WeatherNow is a powerful and intuitive application that allows users to search for any city in the world and get detailed weather information. This project was developed with a special focus on testing using Jest to ensure code quality and reliability.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Global Search**: Quickly and easily search for and find weather information for any city in the world.
+- **Current Weather**: View current weather conditions, including temperature, humidity, wind speed, and more.
+- **Local Time**: Get the local time of the searched city to better plan your activities.
+- **5-Day Forecast**: Check the weather forecast for the next 5 days and plan ahead.
+- **3-Hour Forecast**: Access detailed forecasts every 3 hours for more precise and informed planning.
 
-### `npm start`
+## :technologist: Technologies
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- [Jest](https://jestjs.io/)
+- [React](https://react.dev/)
+- [Redux](https://redux.js.org/)
+- [Styled-components](https://styled-components.com/)
+- [API OpenWeatherMap](https://openweathermap.org/api)
+- Javascript
+- CSS
+- HTML
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Contact
 
-### `npm test`
+Take a look at my [portfolio](https://rafaelgomes.netlify.app?utm_source=github&utm_medium=readme_project&utm_campaign=weatherNow).
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<a href="https://www.facebook.com/rafael.gomes.961pl/"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/facebook/facebook-original.svg" width="30" heigth="30" alt="Rafael-facebook"></a>
+<a href="https://www.linkedin.com/in/dev-rafael-gomes/"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linkedin/linkedin-original.svg" width="30" heigth="30" alt="Rafael-linkedn"></a>
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+:copyright: Developed with 💜 by **[Rafael Gomes](https://rafaelgomes.netlify.app?utm_source=github&utm_medium=readme_project&utm_campaign=weatherNow)**
